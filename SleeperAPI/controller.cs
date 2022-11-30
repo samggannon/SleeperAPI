@@ -27,8 +27,10 @@ namespace SleeperAPI
 
                 matchups = serialize;
                 
+                scoreboard = new scoreboard();
+                scoreboard.ShowScoreboard(matchups, weekNumber);
 
-                TableVisualization.ShowTable(scoreboard, $"Week {weekNumber} Match-Ups");
+                //TableVisualization.ShowTable(matchups, $"Week {weekNumber} Match-Ups");
                 return matchups;
             }
 

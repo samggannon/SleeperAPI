@@ -15,5 +15,18 @@ namespace SleeperAPI
         public string AwayTeam { get; set; }
         public double AwayTeamPoints { get; set; }
 
+
+        public void ShowScoreboard(List<matchup> matchups, string weekNumber)
+        {
+            scoreboard scoreboard = new();
+            foreach (var matchup in matchups)
+            {
+                
+            }
+
+            TableVisualization.ShowTable(scoreboard, $"Week {weekNumber} Match-Ups");
+        }
     }
+
+    
 }
