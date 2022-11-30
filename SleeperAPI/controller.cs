@@ -26,9 +26,9 @@ namespace SleeperAPI
                 var serialize = JsonConvert.DeserializeObject<List<matchup>>(rawResponse);
 
                 matchups = serialize;
-                //scoreboard.match_id = matchups(0);
+                
 
-                TableVisualization.ShowTable(matchups, $"Week {weekNumber} Match-Ups");
+                TableVisualization.ShowTable(scoreboard, $"Week {weekNumber} Match-Ups");
                 return matchups;
             }
 
