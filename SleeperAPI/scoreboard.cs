@@ -18,11 +18,26 @@ namespace SleeperAPI
 
         public void ShowScoreboard(List<matchup> matchups, string weekNumber)
         {
-            scoreboard scoreboard = new();
-            foreach (var matchup in matchups)
-            {
+            List<scoreboard> scoreboard = new();
+            for (int i = 0; i < matchups.Count; i++)
+            { 
+                for (int j = 0; j < matchups.Count; j++)
+                {
+                    foreach (var matchup in matchups)
+                    {
+                        if (matchups[i].matchup_id == matchups[j].matchup_id)
+                        {
+                            // do something
+                            
+
+                        }
+                    }
+
+                }
+            
                 
             }
+            
 
             TableVisualization.ShowTable(scoreboard, $"Week {weekNumber} Match-Ups");
         }
