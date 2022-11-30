@@ -11,19 +11,19 @@ namespace SleeperAPI
 {
     internal class controller
     {
-        public List<matchup> GetMatchUp(string weekNumber)
+        public List<scorecard> GetMatchUp(string weekNumber)
         {
             var client = new RestClient("https://api.sleeper.app/v1/league");
             var resquest = new RestRequest($"/786245221641273344/matchups/{weekNumber}");
             var response = client.ExecuteAsync(resquest);
 
-            List<matchup> matchups = new();
+            List<scorecard> matchups = new();
             scoreboard scoreboard = new scoreboard();
            
             if (response.Result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string rawResponse = response.Result.Content;
-                var serialize = JsonConvert.DeserializeObject<List<matchup>>(rawResponse);
+                var serialize = JsonConvert.DeserializeObject<List<scorecard>>(rawResponse);
 
                 matchups = serialize;
                 

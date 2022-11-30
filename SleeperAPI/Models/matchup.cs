@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SleeperAPI.Models
 {
-    internal class matchup
+    internal class scorecard
     {
 
         [JsonProperty("starters")]

@@ -16,27 +16,31 @@ namespace SleeperAPI
         public string AwayTeamPoints { get; set; }
 
 
-        public void ShowScoreboard(List<matchup> matchups, string weekNumber)
+        public void ShowScoreboard(List<scorecard> matchups, string weekNumber)
         {
             List<scoreboard> scoreboard = new();
-            for (int i = 0; i < matchups.Count; i++)
+            for (int i = 0; i < matchups.Count - 1; i++)
             { 
 
-                for (int j = 0; j < matchups.Count; j++)
+                for (int j = 0; j < matchups.Count - 1; j++)
                 {
                     foreach (var matchup in matchups)
                     {
                         if (matchups[i].matchup_id == matchups[j].matchup_id && matchups[i].roster_id != matchups[j].roster_id)
                         {
-                            
-                            match_id = matchups[i].matchup_id;
-                            HomeTeam = matchups[i].roster_id;
-                            HomeTeamPoints = matchups[i].points;
-                            AwayTeam = matchups[j].roster_id;
-                            AwayTeamPoints = matchups[j].points;
-                        }
-                    }
+                            scoreboard H2H = new();
+                            H2H.match_id = matchups[i].matchup_id;
+                            H2H.HomeTeam = matchups[i].roster_id;
+                            H2H.HomeTeamPoints = matchups[i].points;
+                            H2H.AwayTeam = matchups[j].roster_id;
+                            H2H.AwayTeamPoints = matchups[j].points;
 
+                            scoreboard.Add(H2H);
+                            i++;
+                        }
+                        
+                    }
+                    
                 }
             
                 
